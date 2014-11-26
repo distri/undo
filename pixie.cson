@@ -1,6 +1,4 @@
-version: "0.2.0"
-remoteDependencies: [
-  "http://strd6.github.io/tempest/javascripts/envweb-v0.4.7.js"
-]
+version: "0.2.1"
 dependencies:
   "command-stack": "distri/command-stack:v0.11.0"
+  "util": "distri/util:v0.1.1"

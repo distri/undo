@@ -5,10 +5,12 @@ An editor module for editors that support undo/redo
 
     CommandStack = require "command-stack"
 
-    module.exports = (I={}, self=Core(I)) ->
+    {extend} = require "util"
+
+    module.exports = (I={}, self={}) ->
       commandStack = CommandStack()
 
-      self.extend
+      extend self,
         history: (newHistory=[]) ->
           if arguments.length > 0
             commandStack = CommandStack newHistory
@@ -29,5 +31,11 @@ An editor module for editors that support undo/redo
           commandStack.redo()
 
           return self
+
+        canUndo: ->
+          commandStack.canUndo()
+
+        canRedo: ->
+          commandStack.canRedo()
 
       return self
